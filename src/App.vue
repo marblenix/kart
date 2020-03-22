@@ -1,21 +1,29 @@
 <template>
-  <div id="app">
-    <Config />
-    <Items />
-  </div>
+    <div id="app">
+        <b-container>
+            <b-row>
+                <b-col>
+                    <Config></Config>
+                </b-col>
+                <b-col>
+                    <Items></Items>
+                </b-col>
+            </b-row>
+        </b-container>
+    </div>
 </template>
 
 <script>
-import Config from './components/Config.vue'
-import Items from './components/Items.vue'
+    import Config from './components/Config.vue'
+    import Items from './components/Items.vue'
 
-export default {
-  name: 'App',
-  components: {
-    Config,
-    Items
-  }
-}
+    export default {
+        name: 'App',
+        components: {
+            Config,
+            Items
+        }
+    }
 </script>
 
 <style>

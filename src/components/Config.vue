@@ -1,6 +1,6 @@
 <template>
-    <ol>
-        <li v-for="d in defaults" :key="d.distance">
+    <b-list-group>
+        <b-list-group-item v-for="d in defaults" :key="d.distance">
             <p>Distance from first place: &lt;= {{d.distance}}</p>
             <p>Example Roll:
                 <span class="example item-image"
@@ -13,17 +13,20 @@
                     {{d.current}}
                 </span>
             </p>
-            <ol>
-                <li v-for="i in d.items" :key="i.id">
+            <p>Possible Items:</p>
+            <b-list-group>
+                <b-list-group-item v-for="i in d.items" :key="i.id">
                     <span class="item-image" :class="i.id">{{i.id}}: <span
                             class="probability">{{toPercent(i)}}</span></span>
-                </li>
-            </ol>
-        </li>
-    </ol>
+                </b-list-group-item>
+            </b-list-group>
+        </b-list-group-item>
+    </b-list-group>
 </template>
 
 <script>
+    import {BListGroup, BListGroupItem} from 'bootstrap-vue'
+
     /**
      * The following distributions are used by version 4.1 of Mario Kart 8 to
      * determine the probability of obtaining a certain item when an Item Box
@@ -33,17 +36,23 @@
      */
     export default {
         name: 'Config',
+        components: {
+            BListGroup,
+            BListGroupItem,
+        },
         methods: {
             newItem: function (event) {
                 let target = event.currentTarget;
                 let distance = target.dataset.distance;
                 let items = this.getItemsForDistance(distance);
                 this.setItem(distance, this.getItem(items));
+                this.flash(target);
             },
 
             toPercent: function (item) {
-                return (item.probability / 2) + ' %';
+                return (item.probability / 2) + '%';
             },
+
             totalProbability: function (items) {
                 let probability = 0;
                 items.forEach(function (item) {
@@ -51,13 +60,15 @@
                 });
                 return probability / 2;
             },
+
             setItem: function (distance, itemId) {
                 this.defaults.forEach(value => {
-                    if (value.distance <= distance) {
+                    if (value.distance === parseInt(distance)) {
                         value.current = itemId;
                     }
                 });
             },
+
             getItemsForDistance(distance) {
                 let items = [];
                 this.defaults.forEach(value => {
@@ -67,6 +78,7 @@
                 });
                 return items;
             },
+
             getItem: function (items) {
                 let total = 0;
                 let ranges = [];
@@ -82,8 +94,21 @@
                         return items[i].id;
                     }
                 }
+            },
+
+            flash: function (element) {
+                let op = 0.1;
+                let timer = setInterval(() => {
+                    if (op >= 1) {
+                        clearInterval(timer);
+                    }
+                    element.style.opacity = op;
+                    element.style.filter = 'alpha(opacity=' + op * 100 + ")";
+                    op += op * 0.1;
+                }, 10);
             }
         },
+
         data: function () {
             return {
                 defaults: [{
@@ -229,6 +254,10 @@
         list-style-type: none;
     }
 
+    .example:hover {
+        cursor: pointer;
+    }
+
     .item-image::before {
         background-size: 1em 1em;
         display: inline-block;
@@ -241,63 +270,83 @@
     .Banana::before {
         background-image: url('../../public/img/Banana.png');
     }
+
     .Blooper::before {
         background-image: url('../../public/img/Blooper.png');
     }
+
     .BombOmb::before {
         background-image: url('../../public/img/Bomb-Omb.png');
     }
+
     .BoomerangFlower::before {
         background-image: url('../../public/img/BoomerangFlower.png');
     }
+
     .BulletBill::before {
         background-image: url('../../public/img/BulletBill.png');
     }
+
     .Coin::before {
         background-image: url('../../public/img/Coin.png');
     }
+
     .Crazy8::before {
         background-image: url('../../public/img/Crazy8.png');
     }
+
     .FireFlower::before {
         background-image: url('../../public/img/FireFlower.png');
     }
+
     .GoldenMushroom::before {
         background-image: url('../../public/img/GoldenMushroom.png');
     }
+
     .GreenShell::before {
         background-image: url('../../public/img/GreenShell.png');
     }
+
     .LightningBolt::before {
         background-image: url('../../public/img/LightningBolt.png');
     }
+
     .Mushroom::before {
         background-image: url('../../public/img/Mushroom.png');
     }
+
     .PiranhaPlantPot::before {
         background-image: url('../../public/img/PiranhaPlantPot.png');
     }
+
     .RedShell::before {
         background-image: url('../../public/img/RedShell.png');
     }
+
     .SpinyShell::before {
         background-image: url('../../public/img/SpinyShell.png');
     }
+
     .Star::before {
         background-image: url('../../public/img/Star.png');
     }
+
     .SuperHorn::before {
         background-image: url('../../public/img/SuperHorn.png');
     }
+
     .TripleBanana::before {
         background-image: url('../../public/img/TripleBanana.png');
     }
+
     .TripleGreenShells::before {
         background-image: url('../../public/img/TripleGreenShells.png');
     }
+
     .TripleMushroom::before {
         background-image: url('../../public/img/TripleMushroom.png');
     }
+
     .TripleRedShells::before {
         background-image: url('../../public/img/TripleRedShells.png');
     }

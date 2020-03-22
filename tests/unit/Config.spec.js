@@ -50,10 +50,10 @@ describe('Config', () => {
                 }
             }
         });
-        expect(wrapper.find('.a .probability').text()).toBe("32.5 %");
-        expect(wrapper.find('.b .probability').text()).toBe("35 %");
-        expect(wrapper.find('.c .probability').text()).toBe("25 %");
-        expect(wrapper.find('.d .probability').text()).toBe("7.5 %");
+        expect(wrapper.find('.a .probability').text()).toBe("32.5%");
+        expect(wrapper.find('.b .probability').text()).toBe("35%");
+        expect(wrapper.find('.c .probability').text()).toBe("25%");
+        expect(wrapper.find('.d .probability').text()).toBe("7.5%");
     });
 
     // skipped due to the chance it might fail due to random chance and the fact it takes ~7 seconds to run
