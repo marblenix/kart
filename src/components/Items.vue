@@ -1,18 +1,5 @@
 <template>
-    <table>
-        <thead>
-        <tr>
-            <th>Item Name</th>
-            <th>Item Description</th>
-        </tr>
-        </thead>
-        <tbody>
-        <tr v-for="i in items" :key="i.id">
-            <td>{{i.id}}</td>
-            <td>{{i.description}}</td>
-        </tr>
-        </tbody>
-    </table>
+    <b-table striped hover :items="items"></b-table>
 </template>
 
 <script>

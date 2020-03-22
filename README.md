@@ -1,6 +1,6 @@
 # kart
 
-item generator
+A simple item generator to make games like Jeopardy more interesting.
 
 [Current Master](https://marblenix.github.io/kart)
 
