@@ -239,86 +239,66 @@
     }
 
     .Banana::before {
-        background-image: url('/images/Banana.png');
+        background-image: url('../../public/img/Banana.png');
     }
-
     .Blooper::before {
-        background-image: url('/images/Blooper.png');
+        background-image: url('../../public/img/Blooper.png');
     }
-
     .BombOmb::before {
-        background-image: url('/images/Bomb-Omb.png');
+        background-image: url('../../public/img/Bomb-Omb.png');
     }
-
     .BoomerangFlower::before {
-        background-image: url('/images/BoomerangFlower.png');
+        background-image: url('../../public/img/BoomerangFlower.png');
     }
-
     .BulletBill::before {
-        background-image: url('/images/BulletBill.png');
+        background-image: url('../../public/img/BulletBill.png');
     }
-
     .Coin::before {
-        background-image: url('/images/Coin.png');
+        background-image: url('../../public/img/Coin.png');
     }
-
     .Crazy8::before {
-        background-image: url('/images/Crazy8.png');
+        background-image: url('../../public/img/Crazy8.png');
     }
-
     .FireFlower::before {
-        background-image: url('/images/FireFlower.png');
+        background-image: url('../../public/img/FireFlower.png');
     }
-
     .GoldenMushroom::before {
-        background-image: url('/images/GoldenMushroom.png');
+        background-image: url('../../public/img/GoldenMushroom.png');
     }
-
     .GreenShell::before {
-        background-image: url('/images/GreenShell.png');
+        background-image: url('../../public/img/GreenShell.png');
     }
-
     .LightningBolt::before {
-        background-image: url('/images/LightningBolt.png');
+        background-image: url('../../public/img/LightningBolt.png');
     }
-
     .Mushroom::before {
-        background-image: url('/images/Mushroom.png');
+        background-image: url('../../public/img/Mushroom.png');
     }
-
     .PiranhaPlantPot::before {
-        background-image: url('/images/PiranhaPlantPot.png');
+        background-image: url('../../public/img/PiranhaPlantPot.png');
     }
-
     .RedShell::before {
-        background-image: url('/images/RedShell.png');
+        background-image: url('../../public/img/RedShell.png');
     }
-
     .SpinyShell::before {
-        background-image: url('/images/SpinyShell.png');
+        background-image: url('../../public/img/SpinyShell.png');
     }
-
     .Star::before {
-        background-image: url('/images/Star.png');
+        background-image: url('../../public/img/Star.png');
     }
-
     .SuperHorn::before {
-        background-image: url('/images/SuperHorn.png');
+        background-image: url('../../public/img/SuperHorn.png');
     }
-
     .TripleBanana::before {
-        background-image: url('/images/TripleBanana.png');
+        background-image: url('../../public/img/TripleBanana.png');
     }
-
     .TripleGreenShells::before {
-        background-image: url('/images/TripleGreenShells.png');
+        background-image: url('../../public/img/TripleGreenShells.png');
     }
-
     .TripleMushroom::before {
-        background-image: url('/images/TripleMushroom.png');
+        background-image: url('../../public/img/TripleMushroom.png');
     }
-
     .TripleRedShells::before {
-        background-image: url('/images/TripleRedShells.png');
+        background-image: url('../../public/img/TripleRedShells.png');
     }
 </style>

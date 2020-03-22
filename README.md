@@ -4,7 +4,7 @@ item generator
 
 [Current Master](https://marblenix.github.io/kart)
 
-![Pages Workflow](https://github.com/marblenix/kart/workflows/release/badge.svg)
+![Pages Workflow](https://github.com/marblenix/kart/workflows/Release%20workflow/badge.svg)
 
 
 ## Project setup
