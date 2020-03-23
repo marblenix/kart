@@ -9,7 +9,7 @@
                       :data-total="totalProbability(d.items)"
                       :data-distance="d.distance"
                       :data-item="d.current"
-                      @click="newItem($event)">
+                      @click="updateItem($event)">
                     {{d.current}}
                 </span>
             </p>
@@ -17,7 +17,7 @@
             <b-list-group>
                 <b-list-group-item v-for="i in d.items" :key="i.id">
                     <span class="item-image" :class="i.id">{{i.id}}: <span
-                            class="probability">{{toPercent(i)}}</span></span>
+                            class="probability">{{toPercent(i)}}%</span></span>
                 </b-list-group-item>
             </b-list-group>
         </b-list-group-item>
@@ -41,7 +41,12 @@
             BListGroupItem,
         },
         methods: {
-            newItem: function (event) {
+
+            /**
+             * Updates the item from a click event
+             * @param event the user-fired click event
+             */
+            updateItem: function (event) {
                 let target = event.currentTarget;
                 let distance = target.dataset.distance;
                 let items = this.getItemsForDistance(distance);
@@ -49,10 +54,20 @@
                 this.flash(target);
             },
 
+            /**
+             * Converts the item.probability to a percent-friendly field.
+             * @param item the item to return the probability for
+             * @returns {Number} the item probability as a percentage
+             */
             toPercent: function (item) {
-                return (item.probability / 2) + '%';
+                return (item.probability / 2);
             },
 
+            /**
+             * Return the total probability of all items in a list. Useful mostly for testing.
+             * @param items an array of items
+             * @returns {Number} the total probability of all items in the list, should always be 100
+             */
             totalProbability: function (items) {
                 let probability = 0;
                 items.forEach(function (item) {
@@ -61,6 +76,11 @@
                 return probability / 2;
             },
 
+            /**
+             * Updates the current item for a given distance for the example roll.
+             * @param distance the distance from first place
+             * @param itemId the id of the item to set as the current
+             */
             setItem: function (distance, itemId) {
                 this.defaults.forEach(value => {
                     if (value.distance === parseInt(distance)) {
@@ -69,16 +89,28 @@
                 });
             },
 
-            getItemsForDistance(distance) {
+            /**
+             * Based on the distance from first place, return a list of possible items to draw from.
+             * @param distance the distance from first place
+             * @returns {Array} a list of items
+             */
+            getItemsForDistance: function (distance) {
                 let items = [];
-                this.defaults.forEach(value => {
+                for (const value of this.defaults) {
                     if (value.distance <= distance) {
                         items = value.items;
+                    } else {
+                        break;
                     }
-                });
+                }
                 return items;
             },
 
+            /**
+             * Based on the probability of an item in a list, get a random item.
+             * @param items the list of items to draw from; expected to have item.probability and item.id
+             * @returns {String} the id of the item randomly chosen
+             */
             getItem: function (items) {
                 let total = 0;
                 let ranges = [];
@@ -96,6 +128,10 @@
                 }
             },
 
+            /**
+             * Flash an element for a very short while.
+             * @param element the element to blink
+             */
             flash: function (element) {
                 let op = 0.1;
                 let timer = setInterval(() => {
@@ -250,8 +286,18 @@
 </script>
 
 <style scoped>
-    ol {
-        list-style-type: none;
+    .example {
+        margin-left: .5em;
+        padding: .25em;
+        user-select: none;
+    }
+
+    .example:hover {
+        cursor: pointer;
+    }
+
+    .example:hover {
+        cursor: pointer;
     }
 
     .example:hover {
@@ -260,11 +306,11 @@
 
     .item-image::before {
         background-size: 1em 1em;
-        display: inline-block;
-        width: 1em;
-        height: 1em;
         content: '';
+        display: inline-block;
+        height: 1em;
         margin-right: .5em;
+        width: 1em;
     }
 
     .Banana::before {
