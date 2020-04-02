@@ -5,6 +5,7 @@ module.exports = {
   },
   extends: [
     'plugin:vue/essential',
+    'plugin:vue/vue3-recommended',
     'standard'
   ],
   globals: {
@@ -18,5 +19,7 @@ module.exports = {
   plugins: [
     'vue'
   ],
-  rules: {}
-}
+  rules: {
+    semi: [2, 'always']
+  }
+};

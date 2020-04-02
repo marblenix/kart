@@ -1,13 +1,12 @@
-<template>
-  <b-table striped hover :items="items"></b-table>
-</template>
-
 <script>
 export default {
   name: 'Items',
-  methods: {},
   data: function () {
     return {
+      fields: [
+        { key: 'id', label: 'Item', sortable: true },
+        { key: 'description', label: 'Description' }
+      ],
       items: [
         {
           id: 'Banana',
@@ -80,10 +79,28 @@ export default {
         { id: 'TripleMushroom', description: '+300 to your next 3 answers.' },
         { id: 'TripleRedShells', description: '-100 to 3 people in front of you. 1 shell per person.' }
       ]
-    }
-  }
-}
+    };
+  },
+  methods: {}
+};
 </script>
 
-<style scoped>
-</style>
+<template>
+  <b-table
+    id="itemTable"
+    striped
+    hover
+    :items="items"
+    :fields="fields"
+    primary-key="id"
+  >
+    <template #cell(id)="data">
+      <span
+        class="item-image"
+        :class="data.value"
+      >{{ data.value }}</span>
+    </template>
+  </b-table>
+</template>
+
+<style src="../../public/css/item-images.css"></style>

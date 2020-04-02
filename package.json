@@ -7,7 +7,8 @@
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
     "test:unit": "vue-cli-service test:unit",
-    "lint": "vue-cli-service lint && eslint ."
+    "lint": "vue-cli-service lint --no-fix --max-warnings 0 && eslint --fix-dry-run --max-warnings 0 .",
+    "lint:fix": "vue-cli-service lint && eslint --fix --fix-type problem . && eslint --fix --fix-type suggestion . && eslint --fix --fix-type layout ."
   },
   "dependencies": {
     "bootstrap-vue": "^2.1.0",
@@ -31,7 +32,7 @@
     "eslint-plugin-node": "^11.0.0",
     "eslint-plugin-promise": "^4.2.1",
     "eslint-plugin-standard": "^4.0.1",
-    "eslint-plugin-vue": "^6.2.2",
+    "eslint-plugin-vue": "^7.0.0-alpha.0",
     "jquery": "^3.4.1",
     "jsdom": "^16.2.1",
     "jsdom-global": "^3.0.2",
