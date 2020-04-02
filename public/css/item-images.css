@@ -1,0 +1,96 @@
+.item-image {
+  white-space: nowrap;
+}
+
+.item-image::before {
+  background-size: 1em 1em;
+  content: '';
+  display: inline-block;
+  height: 1em;
+  margin-right: .5em;
+  width: 1em;
+}
+
+.Banana::before {
+  background-image: url('../img/Banana.png');
+}
+
+.Blooper::before {
+  background-image: url('../img/Blooper.png');
+}
+
+.BombOmb::before {
+  background-image: url('../img/Bomb-Omb.png');
+}
+
+.BoomerangFlower::before {
+  background-image: url('../img/BoomerangFlower.png');
+}
+
+.BulletBill::before {
+  background-image: url('../img/BulletBill.png');
+}
+
+.Coin::before {
+  background-image: url('../img/Coin.png');
+}
+
+.Crazy8::before {
+  background-image: url('../img/Crazy8.png');
+}
+
+.FireFlower::before {
+  background-image: url('../img/FireFlower.png');
+}
+
+.GoldenMushroom::before {
+  background-image: url('../img/GoldenMushroom.png');
+}
+
+.GreenShell::before {
+  background-image: url('../img/GreenShell.png');
+}
+
+.LightningBolt::before {
+  background-image: url('../img/LightningBolt.png');
+}
+
+.Mushroom::before {
+  background-image: url('../img/Mushroom.png');
+}
+
+.PiranhaPlantPot::before {
+  background-image: url('../img/PiranhaPlantPot.png');
+}
+
+.RedShell::before {
+  background-image: url('../img/RedShell.png');
+}
+
+.SpinyShell::before {
+  background-image: url('../img/SpinyShell.png');
+}
+
+.Star::before {
+  background-image: url('../img/Star.png');
+}
+
+.SuperHorn::before {
+  background-image: url('../img/SuperHorn.png');
+}
+
+.TripleBanana::before {
+  background-image: url('../img/TripleBanana.png');
+}
+
+.TripleGreenShells::before {
+  background-image: url('../img/TripleGreenShells.png');
+}
+
+.TripleMushroom::before {
+  background-image: url('../img/TripleMushroom.png');
+}
+
+.TripleRedShells::before {
+  background-image: url('../img/TripleRedShells.png');
+}
