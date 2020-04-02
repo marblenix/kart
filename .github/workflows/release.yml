@@ -28,10 +28,10 @@ jobs:
       run: yarn install --audit
 
     - name: run lint
-      run: yarn lint
+      run: yarn lint --no-fix
 
     - name: run tests
-      run: yarn test:unit
+      run: yarn test
 
     - name: build
       run: yarn build
