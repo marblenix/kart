@@ -4,6 +4,7 @@ module.exports = {
     es6: true
   },
   extends: [
+    'eslint:recommended',
     'plugin:vue/essential',
     'plugin:vue/vue3-recommended',
     'standard'
@@ -13,13 +14,13 @@ module.exports = {
     SharedArrayBuffer: 'readonly'
   },
   parserOptions: {
-    ecmaVersion: 2018,
+    ecmaVersion: 2020,
     sourceType: 'module'
   },
-  plugins: [
-    'vue'
-  ],
+  plugins: ['vue'],
   rules: {
-    semi: [2, 'always']
+    semi: [2, 'always'],
+    'require-jsdoc': 'error',
+    'valid-jsdoc': 'error'
   }
 };

@@ -8,7 +8,9 @@ describe('Config', () => {
     expect(wrapper.get('.example')).toBeTruthy();
 
     // all totals should equal 100%
-    const filtered = wrapper.findAll('.example').filter(value => value.element.dataset.total !== '100');
+    const filtered = wrapper
+      .findAll('.example')
+      .filter(value => value.element.dataset.total !== '100');
     expect(filtered).toHaveLength(0);
   });
 
@@ -28,7 +30,11 @@ describe('Config', () => {
     const flashStub = sinon.stub();
     getItemStub.returns('foo');
 
-    wrapper.setMethods({ getItem: getItemStub, setItem: setItemStub, flash: flashStub });
+    wrapper.setMethods({
+      getItem: getItemStub,
+      setItem: setItemStub,
+      flash: flashStub
+    });
     wrapper.get('#roll-400').trigger('click');
     await wrapper.vm.$nextTick();
 
@@ -79,17 +85,18 @@ describe('Config', () => {
     const c = 2500;
     const d = 750;
 
-    expect(Math.max(a, distribution.a) - Math.min(a, distribution.a)).toBeLessThan(151);
-    expect(Math.max(b, distribution.b) - Math.min(b, distribution.b)).toBeLessThan(151);
-    expect(Math.max(c, distribution.c) - Math.min(c, distribution.c)).toBeLessThan(151);
-    expect(Math.max(d, distribution.d) - Math.min(d, distribution.d)).toBeLessThan(151);
-  });
-
-  it('can balance item percents a la humble bundle style', () => {
-    const wrapper = shallowMount(Config, { data: testItems });
-    expect(wrapper.findAll('.form-split-input-slider-400')).toHaveLength(4);
-    wrapper.vm.bundleCalculator(50, ...defaults[0].items);
-    defaults[0].items.forEach(item => console.log(item.probability));
+    expect(
+      Math.max(a, distribution.a) - Math.min(a, distribution.a)
+    ).toBeLessThan(151);
+    expect(
+      Math.max(b, distribution.b) - Math.min(b, distribution.b)
+    ).toBeLessThan(151);
+    expect(
+      Math.max(c, distribution.c) - Math.min(c, distribution.c)
+    ).toBeLessThan(151);
+    expect(
+      Math.max(d, distribution.d) - Math.min(d, distribution.d)
+    ).toBeLessThan(151);
   });
 });
 
@@ -99,31 +106,34 @@ const testItems = function () {
   };
 };
 
-const defaults = [{
-  distance: 400,
-  current: 'a',
-  items: [
-    { id: 'a', probability: 65 },
-    { id: 'b', probability: 70 },
-    { id: 'c', probability: 50 },
-    { id: 'd', probability: 15 }
-  ]
-}, {
-  distance: 1000,
-  current: 'a',
-  items: [
-    { id: 'a', probability: 20 },
-    { id: 'g', probability: 10 },
-    { id: 'h', probability: 5 },
-    { id: 'b', probability: 15 },
-    { id: 'i', probability: 10 },
-    { id: 'c', probability: 25 },
-    { id: 'd', probability: 20 },
-    { id: 'j', probability: 10 },
-    { id: 'e', probability: 50 },
-    { id: 'f', probability: 5 },
-    { id: 'k', probability: 15 },
-    { id: 'l', probability: 10 },
-    { id: 'm', probability: 5 }
-  ]
-}];
+const defaults = [
+  {
+    distance: 400,
+    current: 'a',
+    items: [
+      { id: 'a', probability: 65 },
+      { id: 'b', probability: 70 },
+      { id: 'c', probability: 50 },
+      { id: 'd', probability: 15 }
+    ]
+  },
+  {
+    distance: 1000,
+    current: 'a',
+    items: [
+      { id: 'a', probability: 20 },
+      { id: 'g', probability: 10 },
+      { id: 'h', probability: 5 },
+      { id: 'b', probability: 15 },
+      { id: 'i', probability: 10 },
+      { id: 'c', probability: 25 },
+      { id: 'd', probability: 20 },
+      { id: 'j', probability: 10 },
+      { id: 'e', probability: 50 },
+      { id: 'f', probability: 5 },
+      { id: 'k', probability: 15 },
+      { id: 'l', probability: 10 },
+      { id: 'm', probability: 5 }
+    ]
+  }
+];
