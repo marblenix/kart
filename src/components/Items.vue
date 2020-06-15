@@ -33,7 +33,7 @@ export default {
             ' Misses everyone if you get the answer wrong.' +
             ' Can be used 3 times or abandoned for the next item.'
         },
-        { id: 'BulletBill', description: '+300 to your next 3 answers.' },
+        { id: 'BulletBill', description: '+300 to your next 3 answers, and -300 to everyone you pass' },
         { id: 'Coin', description: '+100 to your current score.' },
         {
           id: 'Crazy8',
